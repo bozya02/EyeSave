@@ -127,9 +127,10 @@ namespace EyeSave.Pages
             if (filtersChanged)
                 PageNumber = 1;
 
-            FilteredAgents = Agents.FindAll(product => product.Title.ToLower().Contains(searchingText) ||
-                                                       product.Email.ToLower().Contains(searchingText) ||
-                                                       product.Phone.ToLower().Contains(searchingText));
+            var t = Agents[10].Email.ToLower().Contains(searchingText);
+            FilteredAgents = Agents.FindAll(agent => agent.Title.ToLower().Contains(searchingText) ||
+                                                     agent.Email.ToLower().Contains(searchingText) ||
+                                                     agent.Phone.ToLower().Contains(searchingText));
 
             if (agentType.ID != 0)
                 FilteredAgents = FilteredAgents.FindAll(product => product.AgentType == agentType);
@@ -139,7 +140,7 @@ namespace EyeSave.Pages
                 FilteredAgents.OrderBy(sorting).ToList();
 
 
-            lvAgents.ItemsSource = FilteredAgents.Skip((PageNumber) * AGENTONPAGE).Take(AGENTONPAGE);
+            lvAgents.ItemsSource = FilteredAgents.Skip((PageNumber - 1) * AGENTONPAGE).Take(AGENTONPAGE);
 
             GeneratePageNumbers();
         }

@@ -28,7 +28,7 @@ namespace EyeSave.Windows
         {
             InitializeComponent();
             Agents = products;
-            Priority = (double)Agents.Sum(x => x.Priority) / Agents.Count();
+            Priority = (double)Agents.Max(x => x.Priority);
             this.DataContext = this;
         }
 
