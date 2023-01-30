@@ -13,9 +13,46 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <ListView x:Name="lvAgents" Grid.Row="1" ItemsSource="{Binding Agents}" HorizontalContentAlignment="Stretch" SelectionChanged="lvAgents_SelectionChanged">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Поиск"/>
+            <TextBox x:Name="tbSearch" Grid.Row="1" TextChanged="tbSearch_TextChanged"/>
+
+            <Label Content="Сортировка" Grid.Column="1"/>
+            <ComboBox x:Name="cbSorting"
+                      Grid.Row="1" Grid.Column="1"
+                      ItemsSource="{Binding Sortings.Keys}" SelectedIndex="0"
+                      SelectionChanged="cbSorting_SelectionChanged"/>
+
+            <Label Content="Фильтрация" Grid.Column="2"/>
+            <ComboBox x:Name="cbAgentTypes"
+                      Grid.Row="1" Grid.Column="2"
+                      ItemsSource="{Binding AgentTypes}" SelectedIndex="0"
+                      SelectionChanged="cbAgentTypes_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Title}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </Grid>
+
+        <ListView x:Name="lvAgents" HorizontalContentAlignment="Stretch" Grid.Row="1"
+                  ItemsSource="{Binding FilteredAgents}"
+                  MouseDoubleClick="lvAgents_MouseDoubleClick"
+                  SelectionChanged="lvAgents_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="1">
@@ -64,5 +101,13 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <Button x:Name="btnEditPriority" Content="Изменить приоритет на" VerticalAlignment="Center" HorizontalAlignment="Left"
+                Grid.Row="2" Margin="3" Click="btnEditPriority_Click" Visibility="Hidden"/>
+
+        <Button x:Name="btnAddAgent" Content="Создать продукт" VerticalAlignment="Center" HorizontalAlignment="Center"
+                Grid.Row="2" Margin="3" Click="btnAddAgent_Click"/>
+
+        <StackPanel x:Name="Paginator" Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right"/>
     </Grid>
 </Page>

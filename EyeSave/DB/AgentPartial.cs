@@ -12,7 +12,7 @@ namespace EyeSave.DB
     {
         public int SalesCount
         {
-            get => ProductSales.Count(x => x.SaleDate.Year == DateTime.Now.Year);
+            get => ProductSales.Count(x => x.SaleDate >= DateTime.Now.AddYears(-1));
 
             set { }
         }

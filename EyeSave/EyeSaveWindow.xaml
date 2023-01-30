@@ -24,7 +24,7 @@
 
             <Image Source="/Resources/eyeSave.png" Width="80" Margin="10 0"/>
 
-            <Label x:Name="lbTitle" Grid.ColumnSpan="3"/>
+            <Label x:Name="lbTitle" Grid.ColumnSpan="3" FontSize="24"/>
 
             <StackPanel Orientation="Horizontal" Grid.Column="2">
                 <Button x:Name="btnBack" Content="Назад" Click="btnBack_Click"/>
