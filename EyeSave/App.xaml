@@ -38,5 +38,9 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="10"/>
         </Style>
+
+        <Style TargetType="ListViewItem">
+            <Setter Property="Background" Value="#FFE9F9"/>
+        </Style>
     </Application.Resources>
 </Application>

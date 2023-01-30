@@ -30,6 +30,6 @@ namespace EyeSave.DB
             set { }
         }
 
-        public string Color => Discount >= 10 ? "#FF27E05D" : "#FFE9F9";
+        public string Color => Discount >= 10 ? "#FF27E05D" : null;
     }
 }

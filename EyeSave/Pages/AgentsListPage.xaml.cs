@@ -139,7 +139,7 @@ namespace EyeSave.Pages
                 FilteredAgents.OrderBy(sorting).ToList();
 
 
-            lvAgents.ItemsSource = FilteredAgents.Skip((PageNumber - 1) * AGENTONPAGE).Take(AGENTONPAGE);
+            lvAgents.ItemsSource = FilteredAgents.Skip((PageNumber) * AGENTONPAGE).Take(AGENTONPAGE);
 
             GeneratePageNumbers();
         }
@@ -173,7 +173,7 @@ namespace EyeSave.Pages
             else if (page.Contains(">"))
             {
                 int pageCount = FilteredAgents.Count % AGENTONPAGE == 0 ? FilteredAgents.Count / AGENTONPAGE : FilteredAgents.Count / AGENTONPAGE + 1;
-                if (PageNumber < pageCount)
+                if (PageNumber + 1 < pageCount)
                     PageNumber++;
             }
             else
