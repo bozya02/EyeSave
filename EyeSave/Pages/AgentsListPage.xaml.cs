@@ -94,6 +94,10 @@ namespace EyeSave.Pages
         private void btnEditPriority_Click(object sender, RoutedEventArgs e)
         {
             var agents = lvAgents.SelectedItems.Cast<Agent>().ToList();
+
+            if (agents.Count == 0)
+                return;
+
             var result = new Windows.EditPriorityWindow(agents).ShowDialog();
 
             if (result.Value)
