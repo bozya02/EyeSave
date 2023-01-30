@@ -34,6 +34,7 @@ namespace EyeSave.DB
         public string LogoName { get; set; }
         public int Priority { get; set; }
         public byte[] Logo { get; set; }
+        public bool IsDeleted { get; set; }
     
         public virtual AgentType AgentType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -79,6 +79,7 @@
     <Compile Include="DB\Agent.cs">
       <DependentUpon>EyeSaveModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DB\AgentPartial.cs" />
     <Compile Include="DB\AgentPriorityHistory.cs">
       <DependentUpon>EyeSaveModel.tt</DependentUpon>
     </Compile>
@@ -136,12 +137,19 @@
       <DependentUpon>EyeSaveWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AgentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AgentsListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AgentPage.xaml.cs">
+      <DependentUpon>AgentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AgentsListPage.xaml.cs">
       <DependentUpon>AgentsListPage.xaml</DependentUpon>
     </Compile>
@@ -199,6 +207,7 @@
       <DependentUpon>EyeSaveModel.edmx</DependentUpon>
       <LastGenOutput>EyeSaveModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\default.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -42,6 +42,8 @@ namespace EyeSave
                 btnBack.Visibility = Visibility.Visible;
                 btnForward.Visibility = Visibility.Collapsed;
             }
+
+            lbTitle.Content = content.Title;
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
